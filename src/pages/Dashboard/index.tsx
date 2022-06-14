@@ -196,7 +196,7 @@ function DashboardContent() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          {/* <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
@@ -211,7 +211,7 @@ function DashboardContent() {
                 </Paper>
               </Grid>
             </Grid>
-          </Container>
+          </Container> */}
         </Box>
       </Box>
     </ThemeProvider>
