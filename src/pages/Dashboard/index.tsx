@@ -86,9 +86,9 @@ function DashboardContent() {
   const [open, setOpen] = React.useState(false);
   const [product, setProduct] = React.useState(false);
   const [deposito, setDeposito] = React.useState(false);
-  const [estoque, setEstoque] = React.useState(false);
+  const [, setEstoque] = React.useState(false);
   const [fornecedor, setFornecedor] = React.useState(false);
-  const [relatorio, setRelatorio] = React.useState(false);
+  const [, setRelatorio] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const toggleDrawer = () => {
     setOpen(!open);
