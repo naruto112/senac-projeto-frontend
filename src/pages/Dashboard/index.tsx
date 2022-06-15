@@ -105,6 +105,7 @@ function DashboardContent() {
   const handleLogOut = () => {
     localStorage.removeItem("@session");
     window.location.reload();
+    navigate("/");
   }
 
   useEffect(() => {
