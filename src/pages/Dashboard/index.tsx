@@ -10,17 +10,23 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { mainListItems } from "../../components/ListItems";
-import Deposits from '../../components/Deposits';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PeopleIcon from '@mui/icons-material/People';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import { useNavigate } from "react-router-dom";
+import Products from '../Products';
+import Depositos from "../Deposito";
+import Fornecedor from "../Fornecedor";
 
 const drawerWidth: number = 240;
 
@@ -77,7 +83,12 @@ const settings = ['Perfil', 'Dashboard', 'Sair'];
 
 function DashboardContent() {
   const navigate = useNavigate();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const [product, setProduct] = React.useState(false);
+  const [deposito, setDeposito] = React.useState(false);
+  const [estoque, setEstoque] = React.useState(false);
+  const [fornecedor, setFornecedor] = React.useState(false);
+  const [relatorio, setRelatorio] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -103,14 +114,56 @@ function DashboardContent() {
     }
   })
 
+  const handleModule = (module: String) => {
+    if(module === "produto") {
+      setProduct(true);
+      setDeposito(false);
+      setEstoque(false);
+      setFornecedor(false);
+      setRelatorio(false);
+    }
+
+    if(module === "deposito") {
+      setProduct(false);
+      setDeposito(true);
+      setEstoque(false);
+      setFornecedor(false);
+      setRelatorio(false);
+    }
+
+    if(module === "estoque") {
+      setProduct(false);
+      setDeposito(false);
+      setEstoque(true);
+      setFornecedor(false);
+      setRelatorio(false);
+    }
+
+    if(module === "fornecedor") {
+      setProduct(false);
+      setDeposito(false);
+      setEstoque(false);
+      setFornecedor(true);
+      setRelatorio(false);
+    }
+
+    if(module === "relatorio") {
+      setProduct(false);
+      setEstoque(false);
+      setFornecedor(false);
+      setRelatorio(true);
+    }
+  }
+
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
           <Toolbar
+            style={{backgroundColor: "#00b292"}}
             sx={{
-              pr: '24px', // keep right padding when drawer closed
+              pr: '24px',
             }}
           >
             <IconButton
@@ -180,7 +233,40 @@ function DashboardContent() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+            <ListItemButton onClick={() => handleModule("produto")}>
+              <ListItemIcon>
+                <CreateNewFolderIcon />
+              </ListItemIcon>
+              <ListItemText primary="Produtos" />
+            </ListItemButton>
+
+            <ListItemButton onClick={() => handleModule("deposito")}>
+              <ListItemIcon>
+                <InventoryIcon />
+              </ListItemIcon>
+              <ListItemText primary="Deposito" />
+            </ListItemButton>
+            
+            <ListItemButton onClick={() => handleModule("fornecedor")}>
+              <ListItemIcon>
+                <PeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Fornecedores" />
+            </ListItemButton>
+
+            <ListItemButton onClick={() => handleModule("estoque")}>
+              <ListItemIcon>
+                <ShoppingCartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Movimenta Estoque" />
+            </ListItemButton>
+
+            <ListItemButton onClick={() => handleModule("relatorio")}>
+              <ListItemIcon>
+                <BarChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Relatórios" />
+            </ListItemButton>
           </List>
         </Drawer>
         <Box
@@ -196,22 +282,15 @@ function DashboardContent() {
           }}
         >
           <Toolbar />
-          {/* <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <Deposits />
-                </Paper>
-              </Grid>
-            </Grid>
-          </Container> */}
+          {product === true && (
+            <Products />
+          )}
+          {deposito === true && (
+            <Depositos />
+          )}
+          {fornecedor === true && (
+            <Fornecedor />
+          )}
         </Box>
       </Box>
     </ThemeProvider>
