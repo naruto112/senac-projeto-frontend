@@ -14,13 +14,13 @@ interface Campo {
     sm: Number;
 }
 
-interface Form {
+interface IForm {
     titulo_fomulario: string;
     campo: [Campo, Campo?, Campo?, Campo?, Campo?, Campo?, Campo?];
     handleSubmit: (event: Event) => void;
 }
 
-export default function Form({titulo_fomulario, campo, handleSubmit}: Form) {
+const Form = ({titulo_fomulario, campo, handleSubmit}: IForm)  =>{
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -136,3 +136,5 @@ export default function Form({titulo_fomulario, campo, handleSubmit}: Form) {
     </React.Fragment>
   );
 }
+
+export default Form;
