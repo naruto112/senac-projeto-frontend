@@ -40,12 +40,12 @@ const Estoque = () => {
                 </Typography>
                 <Box sx={{ minWidth: 120 }}>
                     <FormControl sx={{ m: 1,  minWidth: 245 }}>
-                        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                        <InputLabel id="demo-simple-select-label">Produtos</InputLabel>
                         <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={produto}
-                        label="Age"
+                        label="Produtos"
                         onChange={handleProdutoChange}
                         >
                         <MenuItem value={10}>Ten</MenuItem>
@@ -54,12 +54,12 @@ const Estoque = () => {
                         </Select>
                     </FormControl>
                     <FormControl sx={{ m: 1,  minWidth: 245 }}>
-                        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                        <InputLabel id="demo-simple-select-label">Depositos</InputLabel>
                         <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={deposito}
-                        label="Age"
+                        label="Depositos"
                         onChange={handleDepositoChange}
                         >
                         <MenuItem value={10}>Ten</MenuItem>
@@ -68,24 +68,18 @@ const Estoque = () => {
                         </Select>
                     </FormControl>
                     <FormControl sx={{ m: 1,  minWidth: 245 }}>
-                        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                        <InputLabel id="demo-simple-select-label">Fornecedores</InputLabel>
                         <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={fornecedor}
-                        label="Age"
+                        label="Fornecedores"
                         onChange={handleFornecedorChange}
                         >
                         <MenuItem value={10}>Ten</MenuItem>
                         <MenuItem value={20}>Twenty</MenuItem>
                         <MenuItem value={30}>Thirty</MenuItem>
                         </Select>
-                    </FormControl>
-                    <FormControl sx={{ m: 1,  minWidth: 245 }}>
-                        <FormGroup>
-                            <FormControlLabel control={<Checkbox />} label="Nota?" />
-                            <FormControlLabel control={<Checkbox />} label="Entrada?" />
-                        </FormGroup>
                     </FormControl>
                 </Box>
                 <Box>
@@ -105,6 +99,12 @@ const Estoque = () => {
                         />
                     </FormControl>
                 </Box>
+                <FormControl sx={{ m: 1,  minWidth: 245 }}>
+                        <FormGroup>
+                            <FormControlLabel control={<Checkbox />} label="Nota?" />
+                            <FormControlLabel control={<Checkbox />} label="Entrada?" />
+                        </FormGroup>
+                    </FormControl>
                 <Grid sx={{ width: "100%"}}>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <Button

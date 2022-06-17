@@ -24,7 +24,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import { useNavigate } from "react-router-dom";
-import Products from '../Products';
+import Products from '../Produto';
 import Depositos from "../Deposito";
 import Fornecedor from "../Fornecedor";
 import Estoque from '../Estoque';
@@ -105,6 +105,7 @@ function DashboardContent() {
 
   const handleLogOut = () => {
     localStorage.removeItem("@session");
+    localStorage.removeItem("@token");
     navigate("/");
   }
 

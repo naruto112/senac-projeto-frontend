@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 import EstoquePaper from "../../image/estoque-limitado.png";
+import api from '../../services/api';
 
 
 const theme = createTheme();
@@ -33,9 +34,29 @@ export default function SignIn() {
       return false;
     }
 
-    localStorage.setItem("@session", "logado");
+    await api.post("authentication/login", {
+      "usuario": data.get('email'),
+      "senha": data.get('password')
+    }).then(res => {
+      
+      if (res.data.message === "Not Authorized") {
+        alert("Usuário ou senha incorreto");
+        return false;
+      }
 
-    navigate("/dashboard");
+      if (res.data.acess_TOKEN !== null) {
+        localStorage.setItem("@session", "logado");
+        localStorage.setItem("@token", res.data.acess_TOKEN);
+  
+        navigate("/dashboard");
+      }
+
+
+    }).catch(() => {
+      alert("Usuário ou senha incorreto");
+    })
+
+    
 
   };
 
