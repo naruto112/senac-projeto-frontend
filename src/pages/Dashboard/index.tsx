@@ -27,6 +27,7 @@ import { useNavigate } from "react-router-dom";
 import Products from '../Products';
 import Depositos from "../Deposito";
 import Fornecedor from "../Fornecedor";
+import Estoque from '../Estoque';
 
 const drawerWidth: number = 240;
 
@@ -86,7 +87,7 @@ function DashboardContent() {
   const [open, setOpen] = React.useState(false);
   const [product, setProduct] = React.useState(false);
   const [deposito, setDeposito] = React.useState(false);
-  const [, setEstoque] = React.useState(false);
+  const [estoque, setEstoque] = React.useState(false);
   const [fornecedor, setFornecedor] = React.useState(false);
   const [, setRelatorio] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -290,6 +291,9 @@ function DashboardContent() {
           )}
           {fornecedor === true && (
             <Fornecedor />
+          )}
+          {estoque === true && (
+            <Estoque />
           )}
         </Box>
       </Box>
