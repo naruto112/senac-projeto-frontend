@@ -64,7 +64,7 @@ jobs:
           user: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY}}
           command: |
-            cd /home/ubuntu/java-quarkus-senac/
+            cd /home/ubuntu/react-js-senac/
             sudo docker stop react-container-senac
             sudo docker rm react-container-senac
             sudo docker build -t react-img-senac .
