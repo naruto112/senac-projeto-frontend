@@ -18,11 +18,7 @@ jobs:
         with:
           node-version: 12.x
       - name: Install dependencies
-        run: npm install    
-      - name: Test
-        run: npm test
-        env:
-          CI: true
+        run: npm install
       - name: Generate build
         run: npm run build
       # Share artifact inside workflow
@@ -31,7 +27,6 @@ jobs:
         with:
           name: react-github-actions-build
           path: build
-
 #   deploy:
 #     needs:
 #       - build-java-quarkus
@@ -71,4 +66,4 @@ jobs:
 #             sudo docker rm java-container-quarkus
 #             sudo docker build -t java-img-quarkus .
 #             sudo docker run -d --name java-container-quarkus -p 7000:7000 java-img-quarkus:latest
-            
+
