@@ -28,7 +28,6 @@ import Products from "../Produto";
 import Depositos from "../Deposito";
 import Fornecedor from "../Fornecedor";
 import Estoque from "../Estoque";
-import api from "../../services/api";
 
 const drawerWidth: number = 240;
 
