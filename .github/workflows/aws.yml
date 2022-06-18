@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  build-java-quarkus:
+  build-react-js:
     name: Build in React JS
     runs-on: ubuntu-latest
     steps:
@@ -30,43 +30,42 @@ jobs:
         with:
           name: react-github-actions-build
           path: build
-#   deploy:
-#     needs:
-#       - build-java-quarkus
-#     name: Deploy
-#     runs-on: ubuntu-latest
+  deploy:
+    needs:
+      - build-react-js
+    name: Deploy
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Clean Project Quarkus
-#         uses: fifsky/ssh-action@master
-#         with:
-#           host: ${{ secrets.HOST_DNS }}
-#           user: ${{ secrets.USERNAME }}
-#           key: ${{ secrets.EC2_SSH_KEY}}
-#           command: |
-#             cd /home/ubuntu/
-#             sudo rm -r java-quarkus-senac/
+    steps:
+      - name: Clean Project React
+        uses: fifsky/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          user: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY}}
+          command: |
+            cd /home/ubuntu/
+            sudo rm -r react-js-senac/
 
-#       - name: Checkout the files
-#         uses: actions/checkout@v2
+      - name: Checkout the files
+        uses: actions/checkout@v2
 
-#       - name: Deploy to Server 1
-#         uses: easingthemes/ssh-deploy@main
-#         env:
-#           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-#           REMOTE_HOST: ${{ secrets.HOST_DNS }}
-#           REMOTE_USER: ${{ secrets.USERNAME }}
-#           TARGET: ${{ secrets.TARGET_DIR }}
-#       - name: Executing remote ssh commands using ssh key
-#         uses: fifsky/ssh-action@master
-#         with:
-#           host: ${{ secrets.HOST_DNS }}
-#           user: ${{ secrets.USERNAME }}
-#           key: ${{ secrets.EC2_SSH_KEY}}
-#           command: |
-#             cd /home/ubuntu/java-quarkus-senac/
-#             sudo docker stop java-container-quarkus
-#             sudo docker rm java-container-quarkus
-#             sudo docker build -t java-img-quarkus .
-#             sudo docker run -d --name java-container-quarkus -p 7000:7000 java-img-quarkus:latest
-
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+      - name: Executing remote ssh commands using ssh key
+        uses: fifsky/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          user: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY}}
+          command: |
+            cd /home/ubuntu/java-quarkus-senac/
+            sudo docker stop react-container-senac
+            sudo docker rm react-container-senac
+            sudo docker build -t react-img-senac .
+            sudo docker run -d --name react-container-senac -p 3000:3000 react-img-senac:latest
