@@ -38,8 +38,8 @@ const Estoque = () => {
   const [depositoItem, setDepositoItem] = React.useState<IDeposito[]>([]);
   const [nota, setNota] = React.useState(false);
   const [entrada, setEntrada] = React.useState(false);
-  const [quantidade, setQuantidade] = React.useState(0);
-  const [quantidadeRepos, setQuantidadeRepos] = React.useState(0);
+  const [quantidade, setQuantidade] = React.useState<Number>();
+  const [quantidadeRepos, setQuantidadeRepos] = React.useState<Number>();
   const [price, setPrice] = React.useState("");
 
   api.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(
