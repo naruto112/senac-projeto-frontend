@@ -28,6 +28,7 @@ import Products from "../Produto";
 import Depositos from "../Deposito";
 import Fornecedor from "../Fornecedor";
 import Estoque from "../Estoque";
+import Table from "../TableView";
 
 const drawerWidth: number = 240;
 
@@ -89,7 +90,7 @@ function DashboardContent() {
   const [deposito, setDeposito] = React.useState(false);
   const [estoque, setEstoque] = React.useState(false);
   const [fornecedor, setFornecedor] = React.useState(false);
-  const [, setRelatorio] = React.useState(false);
+  const [table, setTable] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
@@ -125,7 +126,7 @@ function DashboardContent() {
       setDeposito(false);
       setEstoque(false);
       setFornecedor(false);
-      setRelatorio(false);
+      setTable(false);
     }
 
     if (module === "deposito") {
@@ -133,7 +134,7 @@ function DashboardContent() {
       setDeposito(true);
       setEstoque(false);
       setFornecedor(false);
-      setRelatorio(false);
+      setTable(false);
     }
 
     if (module === "estoque") {
@@ -141,7 +142,7 @@ function DashboardContent() {
       setDeposito(false);
       setEstoque(true);
       setFornecedor(false);
-      setRelatorio(false);
+      setTable(false);
     }
 
     if (module === "fornecedor") {
@@ -149,14 +150,14 @@ function DashboardContent() {
       setDeposito(false);
       setEstoque(false);
       setFornecedor(true);
-      setRelatorio(false);
+      setTable(false);
     }
 
-    if (module === "relatorio") {
+    if (module === "table") {
       setProduct(false);
       setEstoque(false);
       setFornecedor(false);
-      setRelatorio(true);
+      setTable(true);
     }
   };
 
@@ -266,11 +267,11 @@ function DashboardContent() {
               <ListItemText primary="Movimenta Estoque" />
             </ListItemButton>
 
-            <ListItemButton onClick={() => handleModule("relatorio")}>
+            <ListItemButton onClick={() => handleModule("table")}>
               <ListItemIcon>
                 <BarChartIcon />
               </ListItemIcon>
-              <ListItemText primary="Relatórios" />
+              <ListItemText primary="Tabela de Movimento" />
             </ListItemButton>
           </List>
         </Drawer>
@@ -291,6 +292,7 @@ function DashboardContent() {
           {deposito === true && <Depositos />}
           {fornecedor === true && <Fornecedor />}
           {estoque === true && <Estoque />}
+          {table === true && <Table />}
         </Box>
       </Box>
     </ThemeProvider>
