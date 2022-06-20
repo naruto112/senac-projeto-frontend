@@ -1,5 +1,4 @@
 import * as React from "react";
-import Link from "@mui/material/Link";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -61,10 +60,6 @@ const rows = [
     212.79
   ),
 ];
-
-function preventDefault(event: React.MouseEvent) {
-  event.preventDefault();
-}
 
 export default function TableView() {
   return (
