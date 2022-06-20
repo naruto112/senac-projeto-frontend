@@ -113,7 +113,11 @@ const Estoque = () => {
   return (
     <div className="container">
       <div className="estoque-form">
-        <Typography style={{ marginBottom: 20 }} variant="h6" gutterBottom>
+        <Typography
+          style={{ marginBottom: 20, padding: "10px" }}
+          variant="h6"
+          gutterBottom
+        >
           Movimentar Estoque
         </Typography>
         <Box sx={{ minWidth: 120 }}>

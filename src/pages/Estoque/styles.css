@@ -8,8 +8,8 @@
 
 @media only screen and (max-width: 600px) {
   .estoque-form {
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 30%;
+    margin-bottom: 30%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -22,8 +22,6 @@
 
 @media only screen and (min-width: 600px) {
   .estoque-form {
-    margin-top: -20%;
-    margin-bottom: -10%;
     display: flex;
     justify-content: center;
     flex-direction: column;
