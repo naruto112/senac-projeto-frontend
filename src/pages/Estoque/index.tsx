@@ -117,7 +117,7 @@ const Estoque = () => {
           Movimentar Estoque
         </Typography>
         <Box sx={{ minWidth: 120 }}>
-          <FormControl sx={{ m: 1, minWidth: 245 }}>
+          <FormControl sx={{ m: 1, minWidth: 300 }}>
             <InputLabel id="demo-simple-select-label">Produtos</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -133,7 +133,7 @@ const Estoque = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl sx={{ m: 1, minWidth: 245 }}>
+          <FormControl sx={{ m: 1, minWidth: 300 }}>
             <InputLabel id="demo-simple-select-label">Depositos</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -149,7 +149,7 @@ const Estoque = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl sx={{ m: 1, minWidth: 245 }}>
+          <FormControl sx={{ m: 1, minWidth: 300 }}>
             <InputLabel id="demo-simple-select-label">Fornecedores</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -167,7 +167,7 @@ const Estoque = () => {
           </FormControl>
         </Box>
         <Box>
-          <FormControl sx={{ m: 1, minWidth: 245 }}>
+          <FormControl sx={{ m: 1, minWidth: 300 }}>
             <TextField
               id="outlined-basic"
               label="Quantidade"
@@ -179,7 +179,7 @@ const Estoque = () => {
               }}
             />
           </FormControl>
-          <FormControl sx={{ m: 1, minWidth: 245 }}>
+          <FormControl sx={{ m: 1, minWidth: 300 }}>
             <TextField
               id="outlined-basic"
               label="Quantidade Reposição"
@@ -191,7 +191,7 @@ const Estoque = () => {
               }}
             />
           </FormControl>
-          <FormControl sx={{ m: 1, minWidth: 245 }}>
+          <FormControl sx={{ m: 1, minWidth: 300 }}>
             <TextField
               id="outlined-basic"
               label="Preço"
@@ -205,7 +205,7 @@ const Estoque = () => {
             />
           </FormControl>
         </Box>
-        <FormControl sx={{ m: 1, minWidth: 245 }}>
+        <FormControl sx={{ m: 1, minWidth: 300 }}>
           <FormGroup>
             <FormControlLabel
               control={<Checkbox onChange={handleChangeNota} checked={nota} />}
@@ -220,12 +220,25 @@ const Estoque = () => {
           </FormGroup>
         </FormControl>
         <Grid sx={{ width: "100%" }}>
-          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+          <Box
+            sx={{
+              display: "flex",
+              width: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Button
               className="btn-mobile"
               variant="outlined"
               onClick={handleMovimentStock}
-              sx={{ mt: 3, ml: 1 }}
+              sx={{ mt: 1, ml: 0 }}
+              style={{
+                width: "90%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
               Movimentar
             </Button>

@@ -1,34 +1,32 @@
 .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
-    .estoque-form {
-        margin-top: 10%;
-        margin-bottom: 10%;
-        width: 80%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        height: 300px;
-    }
-    .btn-mobile {
-        width: 100%;
-    }
+  .estoque-form {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 300px;
+  }
+  .btn-mobile {
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 600px) {
-    .estoque-form {
-        margin-top: -20%;
-        margin-bottom: -10%;
-        width: 60%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        height: 300px;
-    }
+  .estoque-form {
+    margin-top: -20%;
+    margin-bottom: -10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 300px;
+  }
 }
