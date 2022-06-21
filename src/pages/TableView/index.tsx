@@ -66,15 +66,18 @@ export default function TableView() {
     <React.Fragment>
       <div className="table-view">
         <div>
-          <h2>Movimentção do Estoque</h2>
+          <h2>Extrato de Movimentação do Estoque</h2>
           <Table size="medium">
             <TableHead>
               <TableRow>
-                <TableCell>Date</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Ship To</TableCell>
-                <TableCell>Payment Method</TableCell>
-                <TableCell align="right">Sale Amount</TableCell>
+                <TableCell>Data</TableCell>
+                <TableCell>Nota Fiscal</TableCell>
+                <TableCell>Entrada/Saída</TableCell>
+                <TableCell>Valor</TableCell>
+                <TableCell>Produto</TableCell>
+                <TableCell>Quantidade</TableCell>
+                <TableCell>Fornecedor</TableCell>
+                <TableCell>Deposito</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -83,8 +86,88 @@ export default function TableView() {
                   <TableCell>{row.date}</TableCell>
                   <TableCell>{row.name}</TableCell>
                   <TableCell>{row.shipTo}</TableCell>
+                  <TableCell>{row.shipTo}</TableCell>
+                  <TableCell>{row.shipTo}</TableCell>
+                  <TableCell>{row.shipTo}</TableCell>
                   <TableCell>{row.paymentMethod}</TableCell>
-                  <TableCell align="right">{`$${row.amount}`}</TableCell>
+                  <TableCell>{`$${row.amount}`}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+      <div className="table-view">
+        <div>
+          <h2>Produtos em ponto de Reposição</h2>
+          <Table size="medium">
+            <TableHead>
+              <TableRow>
+                <TableCell>Produto</TableCell>
+                <TableCell>Saldo</TableCell>
+                <TableCell>Ponto de Reposição</TableCell>
+                <TableCell>Deposito</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell>{row.date}</TableCell>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell>{row.shipTo}</TableCell>
+                  <TableCell>{row.shipTo}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+      <div className="table-view">
+        <div>
+          <h2>
+            Produtos em ponto de reposição x Fornecedores para cotação de compra
+          </h2>
+          <Table size="medium">
+            <TableHead>
+              <TableRow>
+                <TableCell>Produto</TableCell>
+                <TableCell>Saldo</TableCell>
+                <TableCell>Ponto de Reposição</TableCell>
+                <TableCell>Deposito</TableCell>
+                <TableCell>Preço de Compra</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell>{row.date}</TableCell>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell>{row.shipTo}</TableCell>
+                  <TableCell>{row.shipTo}</TableCell>
+                  <TableCell>{row.shipTo}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+      <div className="table-view">
+        <div>
+          <h2>Posição Atual de Estoque Geral e por Depósito</h2>
+          <Table size="medium">
+            <TableHead>
+              <TableRow>
+                <TableCell>Produto</TableCell>
+                <TableCell>Saldo</TableCell>
+                <TableCell>Deposito</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell>{row.date}</TableCell>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell>{row.shipTo}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
