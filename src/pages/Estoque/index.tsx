@@ -138,7 +138,7 @@ const Estoque = () => {
             </Select>
           </FormControl>
           <FormControl sx={{ m: 1, minWidth: 300 }}>
-            <InputLabel id="demo-simple-select-label">Depositos</InputLabel>
+            <InputLabel id="demo-simple-select-label">Depósitos</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
