@@ -87,14 +87,18 @@ export default function TableView() {
           <Table size="small">
             <TableHead>
               <TableRow>
-                <TableCell>Data</TableCell>
-                <TableCell>Nota Fiscal</TableCell>
-                <TableCell>Entrada/Saída</TableCell>
-                <TableCell>Valor</TableCell>
-                <TableCell>Produto</TableCell>
-                <TableCell>Quantidade</TableCell>
-                <TableCell>Fornecedor</TableCell>
-                <TableCell>Depósito</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Data</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Nota Fiscal
+                </TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Entrada/Saída
+                </TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Valor</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Produto</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Quantidade</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Fornecedor</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Depósito</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -122,10 +126,14 @@ export default function TableView() {
           <Table size="small">
             <TableHead>
               <TableRow>
-                <TableCell>Produto</TableCell>
-                <TableCell>Depósito</TableCell>
-                <TableCell>Quantidade Estoque</TableCell>
-                <TableCell>Quanatidade Reposição</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Produto</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Depósito</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Quantidade Estoque
+                </TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Quanatidade Reposição
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -149,13 +157,25 @@ export default function TableView() {
           <Table size="small">
             <TableHead>
               <TableRow>
-                <TableCell>Depósito</TableCell>
-                <TableCell>Nome Fornecedor</TableCell>
-                <TableCell>Quantidade Reposição</TableCell>
-                <TableCell>Custo Unitário de Produto</TableCell>
-                <TableCell>Data do Cadastro</TableCell>
-                <TableCell>Nome Produto</TableCell>
-                <TableCell>Quantidade Estoque</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Depósito</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Nome Fornecedor
+                </TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Quantidade Reposição
+                </TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Custo Unitário de Produto
+                </TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Data do Cadastro
+                </TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Nome Produto
+                </TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>
+                  Quantidade Estoque
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -182,9 +202,9 @@ export default function TableView() {
           <Table size="medium">
             <TableHead>
               <TableRow>
-                <TableCell>Produto</TableCell>
-                <TableCell>Saldo</TableCell>
-                <TableCell>Depósito</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Produto</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Saldo</TableCell>
+                <TableCell style={{ fontWeight: "bold" }}>Depósito</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
