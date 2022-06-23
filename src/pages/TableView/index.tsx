@@ -6,6 +6,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import "./styles.css";
 import api from "../../services/api";
+import Moment from 'moment';
 
 // Generate Order Data
 interface IExtratoAPI {
