@@ -250,7 +250,7 @@ function DashboardContent() {
               <ListItemIcon>
                 <InventoryIcon />
               </ListItemIcon>
-              <ListItemText primary="Deposito" />
+              <ListItemText primary="Depósito" />
             </ListItemButton>
 
             <ListItemButton onClick={() => handleModule("fornecedor")}>
