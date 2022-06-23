@@ -99,7 +99,7 @@ export default function TableView() {
             <TableBody>
               {extratoRow.map((row) => (
                 <TableRow key={row.id}>
-                  <TableCell>{row.data.format('DD-MM-YYYY')}</TableCell>
+                  <TableCell>{row.data}</TableCell>
                   <TableCell>{row.nota_FISCAL}</TableCell>
                   <TableCell>{row.entrada_SAIDA}</TableCell>
                   <TableCell>{row.valor}</TableCell>
@@ -162,7 +162,7 @@ export default function TableView() {
                   <TableCell>{row.nom_FORNEC}</TableCell>
                   <TableCell>{row.num_QTD_REPOS}</TableCell>
                   <TableCell>{row.num_CUSTO_UN_PROD}</TableCell>
-                  <TableCell>{String(row.dte.format('DD-MM-YYYY'))}</TableCell>
+                  <TableCell>{String(row.dte)}</TableCell>
                   <TableCell>{row.nom_PROD}</TableCell>
                   <TableCell>{row.num_QTD_ESTOQUE}</TableCell>
                 </TableRow>
