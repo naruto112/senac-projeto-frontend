@@ -1,4 +1,5 @@
 import * as React from "react";
+import moment from "moment";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -10,7 +11,7 @@ import api from "../../services/api";
 // Generate Order Data
 interface IExtratoAPI {
   id: string;
-  data: string;
+  data: Date;
   nota_FISCAL: string;
   entrada_SAIDA: string;
   valor: number;
@@ -93,13 +94,15 @@ export default function TableView() {
                 <TableCell>Produto</TableCell>
                 <TableCell>Quantidade</TableCell>
                 <TableCell>Fornecedor</TableCell>
-                <TableCell>Deposito</TableCell>
+                <TableCell>Depósito</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {extratoRow.map((row) => (
                 <TableRow key={row.id}>
-                  <TableCell>{row.data}</TableCell>
+                  <TableCell>
+                    {String(moment(row.data).format("DD/MM/YYYY"))}
+                  </TableCell>
                   <TableCell>{row.nota_FISCAL}</TableCell>
                   <TableCell>{row.entrada_SAIDA}</TableCell>
                   <TableCell>{row.valor}</TableCell>
@@ -120,7 +123,7 @@ export default function TableView() {
             <TableHead>
               <TableRow>
                 <TableCell>Produto</TableCell>
-                <TableCell>Deposito</TableCell>
+                <TableCell>Depósito</TableCell>
                 <TableCell>Quantidade Estoque</TableCell>
                 <TableCell>Quanatidade Reposição</TableCell>
               </TableRow>
@@ -146,7 +149,7 @@ export default function TableView() {
           <Table size="small">
             <TableHead>
               <TableRow>
-                <TableCell>Deposito</TableCell>
+                <TableCell>Depósito</TableCell>
                 <TableCell>Nome Fornecedor</TableCell>
                 <TableCell>Quantidade Reposição</TableCell>
                 <TableCell>Custo Unitário de Produto</TableCell>
@@ -162,7 +165,9 @@ export default function TableView() {
                   <TableCell>{row.nom_FORNEC}</TableCell>
                   <TableCell>{row.num_QTD_REPOS}</TableCell>
                   <TableCell>{row.num_CUSTO_UN_PROD}</TableCell>
-                  <TableCell>{String(row.dte)}</TableCell>
+                  <TableCell>
+                    {String(moment(row.dte).format("DD/MM/YYYY"))}
+                  </TableCell>
                   <TableCell>{row.nom_PROD}</TableCell>
                   <TableCell>{row.num_QTD_ESTOQUE}</TableCell>
                 </TableRow>
@@ -179,7 +184,7 @@ export default function TableView() {
               <TableRow>
                 <TableCell>Produto</TableCell>
                 <TableCell>Saldo</TableCell>
-                <TableCell>Deposito</TableCell>
+                <TableCell>Depósito</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
