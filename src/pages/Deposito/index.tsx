@@ -36,7 +36,7 @@ const Depositos = () => {
                         required
                         id="nome_deposito"
                         name="nome_deposito"
-                        label="Nome Deposito"
+                        label="Nome Depósito"
                         fullWidth
                         autoComplete="given-name"
                         variant="standard"
