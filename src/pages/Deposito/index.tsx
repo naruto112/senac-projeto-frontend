@@ -29,7 +29,7 @@ const Depositos = () => {
             <div className="deposito-form">
                 <Box component="form" onSubmit={handleSubmitDeposito}>
                     <Typography style={{marginBottom: 50}} variant="h6" gutterBottom>
-                        Adicionar Depositos
+                        Adicionar Depósitos
                     </Typography>
                     <Grid item xs={12} sm={6} >
                         <TextField
