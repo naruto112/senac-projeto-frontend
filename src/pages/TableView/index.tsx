@@ -162,7 +162,7 @@ export default function TableView() {
                   <TableCell>{row.nom_FORNEC}</TableCell>
                   <TableCell>{row.num_QTD_REPOS}</TableCell>
                   <TableCell>{row.num_CUSTO_UN_PROD}</TableCell>
-                  <TableCell>{String(row.dte.getDate() + "/" + row.dte.getMonth() + "/" + row.dte.getFullYear() )}</TableCell>
+                  <TableCell>{String(row.dte)}</TableCell>
                   <TableCell>{row.nom_PROD}</TableCell>
                   <TableCell>{row.num_QTD_ESTOQUE}</TableCell>
                 </TableRow>
