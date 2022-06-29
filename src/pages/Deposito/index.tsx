@@ -89,6 +89,10 @@ const Depositos = () => {
   };
 
   const handleDeleta = async () => {
+    api.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("@token")}`;
+
     const result = await (await api.delete(`depositos/${data[0].id}`)).status;
 
     if (result === 202) {

@@ -89,6 +89,10 @@ const Fornecedor = () => {
   };
 
   const handleDeleta = async () => {
+    api.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("@token")}`;
+
     const result = await (
       await api.delete(`fornecedores/${data[0].id}`)
     ).status;
