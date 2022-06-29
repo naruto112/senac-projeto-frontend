@@ -56,8 +56,10 @@ const Depositos = () => {
       return p.nom_DEPOS.includes(deposito);
     });
 
-    if (result.length > 1) {
-      alert("Coloque mais palavras para filtrar a pesquisa");
+    if (result.length === 0) {
+      alert(
+        "Deposito não localizado ou coloque mais palavras para filtrar a pesquisa"
+      );
       return false;
     }
 

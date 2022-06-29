@@ -56,8 +56,10 @@ const Fornecedor = () => {
       return p.nom_FORNEC.includes(fornecedor);
     });
 
-    if (result.length > 1) {
-      alert("Coloque mais palavras para filtrar a pesquisa");
+    if (result.length === 0) {
+      alert(
+        "Fornecedor não localizado ou coloque mais palavras para filtrar a pesquisa"
+      );
       return false;
     }
 

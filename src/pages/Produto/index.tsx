@@ -60,8 +60,10 @@ const Products = () => {
       return p.nom_PROD.includes(produto);
     });
 
-    if (result.length > 1) {
-      alert("Coloque mais palavras para filtrar a pesquisa");
+    if (result.length === 0) {
+      alert(
+        "Produto não localizado ou coloque mais palavras para filtrar a pesquisa"
+      );
       return false;
     }
 
