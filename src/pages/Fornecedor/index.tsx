@@ -17,6 +17,7 @@ const Fornecedor = () => {
   const [busca, setBusca] = React.useState(true);
   const [data, setData] = React.useState<IFornecedor[]>([]);
   const [atualiza, setAtualiza] = React.useState(false);
+  const [deleta, setDeleta] = React.useState(false);
 
   const handleSubmitFornecedor = async (
     event: React.FormEvent<HTMLFormElement>
@@ -64,6 +65,7 @@ const Fornecedor = () => {
     setData(result);
     setBusca(false);
     setAtualiza(true);
+    setDeleta(true);
     alert("Fornecedor encontrado");
   };
 
@@ -81,6 +83,22 @@ const Fornecedor = () => {
       setData([]);
       setFornecedor("");
       setAtualiza(false);
+      setDeleta(false);
+      setBusca(true);
+    }
+  };
+
+  const handleDeleta = async () => {
+    const result = await (
+      await api.delete(`fornecedores/${data[0].id}`)
+    ).status;
+
+    if (result === 202) {
+      alert("Deletado com sucesso");
+      setData([]);
+      setFornecedor("");
+      setAtualiza(false);
+      setDeleta(false);
       setBusca(true);
     }
   };
@@ -106,7 +124,13 @@ const Fornecedor = () => {
             />
           </Grid>
           <Grid sx={{ width: "100%" }}>
-            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "flex-end",
+                flexDirection: "column",
+              }}
+            >
               {busca && (
                 <Button
                   variant="outlined"
@@ -123,9 +147,19 @@ const Fornecedor = () => {
                   variant="outlined"
                   onClick={handleUpdate}
                   sx={{ mt: 3, ml: 1 }}
-                  style={{ color: "#FF0000", borderColor: "#FF0000" }}
+                  style={{ color: "#008000", borderColor: "#008000" }}
                 >
                   Atualizar
+                </Button>
+              )}
+              {deleta && (
+                <Button
+                  variant="outlined"
+                  onClick={handleDeleta}
+                  sx={{ mt: 3, ml: 1 }}
+                  style={{ color: "#FF0000", borderColor: "#FF0000" }}
+                >
+                  Deletar
                 </Button>
               )}
               <Button

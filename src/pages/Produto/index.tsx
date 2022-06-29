@@ -20,6 +20,7 @@ const Products = () => {
   const [busca, setBusca] = React.useState(true);
   const [data, setData] = React.useState<IProduto[]>([]);
   const [atualiza, setAtualiza] = React.useState(false);
+  const [deleta, setDeleta] = React.useState(false);
 
   const handleSubmitProduto = async (
     event: React.FormEvent<HTMLFormElement>
@@ -68,6 +69,7 @@ const Products = () => {
     setData(result);
     setBusca(false);
     setAtualiza(true);
+    setDeleta(true);
     alert("Produto encontrado");
   };
 
@@ -85,6 +87,20 @@ const Products = () => {
       setData([]);
       setProduto("");
       setAtualiza(false);
+      setDeleta(false);
+      setBusca(true);
+    }
+  };
+
+  const handleDeleta = async () => {
+    const result = await (await api.delete(`produtos/${data[0].id}`)).status;
+
+    if (result === 202) {
+      alert("Deletado com sucesso");
+      setData([]);
+      setProduto("");
+      setAtualiza(false);
+      setDeleta(false);
       setBusca(true);
     }
   };
@@ -110,7 +126,13 @@ const Products = () => {
             />
           </Grid>
           <Grid sx={{ width: "100%" }}>
-            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "flex-end",
+                flexDirection: "column",
+              }}
+            >
               {busca && (
                 <Button
                   variant="outlined"
@@ -127,9 +149,19 @@ const Products = () => {
                   variant="outlined"
                   onClick={handleUpdate}
                   sx={{ mt: 3, ml: 1 }}
-                  style={{ color: "#FF0000", borderColor: "#FF0000" }}
+                  style={{ color: "#008000", borderColor: "#008000" }}
                 >
                   Atualizar
+                </Button>
+              )}
+              {deleta && (
+                <Button
+                  variant="outlined"
+                  onClick={handleDeleta}
+                  sx={{ mt: 3, ml: 1 }}
+                  style={{ color: "#FF0000", borderColor: "#FF0000" }}
+                >
+                  Deletar
                 </Button>
               )}
               <Button variant="outlined" sx={{ mt: 3, ml: 1 }} type="submit">
